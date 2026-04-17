@@ -1,0 +1,146 @@
+.notedown-floating-button,
+.notedown-panel,
+.notedown-panel * {
+  box-sizing: border-box;
+}
+
+.notedown-floating-button {
+  position: absolute;
+  z-index: 2147483644;
+  border: 0;
+  border-radius: 999px;
+  padding: 9px 14px;
+  background: linear-gradient(135deg, #135c52 0%, #0d7c6e 100%);
+  color: #fffef9;
+  font: 600 13px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  box-shadow: 0 14px 30px rgba(10, 44, 40, 0.22);
+  cursor: pointer;
+}
+
+.notedown-panel {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: min(420px, calc(100vw - 32px));
+  z-index: 2147483645;
+  border: 1px solid rgba(20, 33, 29, 0.12);
+  border-radius: 18px;
+  padding: 16px;
+  background:
+    radial-gradient(circle at top right, rgba(224, 153, 68, 0.16), transparent 35%),
+    linear-gradient(180deg, rgba(255, 252, 247, 0.98) 0%, rgba(248, 244, 236, 0.98) 100%);
+  color: #1d1b17;
+  box-shadow: 0 24px 60px rgba(31, 24, 12, 0.18);
+  backdrop-filter: blur(14px);
+}
+
+.notedown-panel__header,
+.notedown-panel__footer,
+.notedown-panel__actions {
+  display: flex;
+  align-items: center;
+}
+
+.notedown-panel__header,
+.notedown-panel__footer {
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.notedown-panel__subtle,
+.notedown-panel__status {
+  font: 400 12px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #61584a;
+}
+
+.notedown-panel__section {
+  margin-top: 16px;
+}
+
+.notedown-panel__label {
+  display: block;
+  margin-bottom: 8px;
+  font: 600 12px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #7a6241;
+}
+
+.notedown-panel__preview {
+  max-height: 110px;
+  overflow: auto;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.74);
+  font: 400 13px/1.6 Georgia, "Times New Roman", serif;
+  color: #302a1f;
+}
+
+.notedown-panel textarea {
+  width: 100%;
+  min-height: 120px;
+  resize: vertical;
+  border: 1px solid rgba(45, 37, 23, 0.12);
+  border-radius: 14px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.82);
+  font: 400 14px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #201d17;
+}
+
+.notedown-icon-button,
+.notedown-primary-button,
+.notedown-secondary-button {
+  border: 0;
+  cursor: pointer;
+}
+
+.notedown-icon-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: rgba(13, 111, 99, 0.12);
+  color: #0a5a50;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.notedown-panel__actions {
+  gap: 10px;
+}
+
+.notedown-primary-button,
+.notedown-secondary-button {
+  border-radius: 999px;
+  padding: 10px 16px;
+  font: 600 13px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.notedown-primary-button {
+  background: linear-gradient(135deg, #135c52 0%, #0d7c6e 100%);
+  color: #fffef9;
+}
+
+.notedown-primary-button:disabled {
+  cursor: wait;
+  opacity: 0.68;
+}
+
+.notedown-secondary-button {
+  background: rgba(13, 111, 99, 0.12);
+  color: #0a5a50;
+}
+
+.notedown-panel__status.error {
+  color: #a63b32;
+}
+
+@media (max-width: 640px) {
+  .notedown-panel {
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    width: auto;
+  }
+}
+

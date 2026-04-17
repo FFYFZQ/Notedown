@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Notedown PDF</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="pdf-viewer.css" />
+  </head>
+  <body>
+    <header class="pdf-app-header">
+      <div class="pdf-app-header__meta">
+        <div class="pdf-app-header__eyebrow">Notedown PDF</div>
+        <h1 id="documentTitle">正在加载 PDF...</h1>
+        <a id="sourceLink" class="pdf-app-header__source" href="#" target="_blank" rel="noreferrer">原始 PDF</a>
+      </div>
+
+      <div class="pdf-toolbar">
+        <button type="button" id="prevPage">上一页</button>
+        <label class="pdf-toolbar__page">
+          <span>页码</span>
+          <input id="pageNumber" type="number" min="1" step="1" />
+        </label>
+        <div class="pdf-toolbar__count" id="pageCount">/ 0</div>
+        <button type="button" id="zoomOut">缩小</button>
+        <button type="button" id="fitWidth">适应宽度</button>
+        <button type="button" id="zoomIn">放大</button>
+      </div>
+    </header>
+
+    <div id="viewerContainer">
+      <div id="viewer" class="pdfViewer"></div>
+    </div>
+
+    <div class="pdf-loading-state" id="loadingState">正在加载 PDF...</div>
+
+    <script type="module" src="pdf-viewer.js"></script>
+  </body>
+</html>

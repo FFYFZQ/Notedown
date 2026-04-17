@@ -1,0 +1,9 @@
+{
+  "id": "notedown-bridge",
+  "name": "Notedown Bridge",
+  "version": "0.1.0",
+  "minAppVersion": "1.5.0",
+  "description": "Receive quotes from Chrome on localhost and save them into your vault.",
+  "author": "Notedown contributors",
+  "isDesktopOnly": true
+}

@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  sanity-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Validate manifest.json
+        run: python3 -m json.tool chrome-extension/manifest.json >/dev/null
+
+      - name: Check background script syntax
+        run: node --check chrome-extension/background.js
+
+      - name: Check content script syntax
+        run: node --check chrome-extension/content.js
+
+      - name: Check popup script syntax
+        run: node --check chrome-extension/popup.js
+
+      - name: Check PDF viewer syntax
+        run: node --experimental-default-type=module --check chrome-extension/pdf-viewer.js

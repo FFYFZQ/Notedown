@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Notedown 设置</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f3efe6;
+        --card: rgba(255, 252, 245, 0.92);
+        --text: #1b1b18;
+        --muted: #615c53;
+        --line: rgba(39, 31, 18, 0.12);
+        --accent: #0d6f63;
+        --accent-strong: #084e46;
+        --danger: #a63b32;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Iowan Old Style", "Palatino Linotype", "Noto Serif SC", serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(13, 111, 99, 0.16), transparent 36%),
+          radial-gradient(circle at right, rgba(214, 121, 64, 0.2), transparent 30%),
+          linear-gradient(180deg, #efe7d8 0%, var(--bg) 100%);
+      }
+
+      main {
+        max-width: 760px;
+        margin: 48px auto;
+        padding: 0 20px 40px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: 0 20px 50px rgba(44, 28, 4, 0.08);
+        padding: 28px;
+        backdrop-filter: blur(10px);
+      }
+
+      h1 {
+        font-size: 2rem;
+        margin: 0 0 10px;
+      }
+
+      p {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      label {
+        display: block;
+        margin: 24px 0 8px;
+        font-weight: 600;
+      }
+
+      input {
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        font: inherit;
+        background: rgba(255, 255, 255, 0.86);
+      }
+
+      .actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 28px;
+        flex-wrap: wrap;
+      }
+
+      button {
+        border: 0;
+        border-radius: 999px;
+        padding: 12px 18px;
+        font: inherit;
+        cursor: pointer;
+      }
+
+      .primary {
+        color: white;
+        background: var(--accent);
+      }
+
+      .secondary {
+        color: var(--accent-strong);
+        background: rgba(13, 111, 99, 0.12);
+      }
+
+      .status {
+        margin-top: 18px;
+        min-height: 24px;
+        color: var(--muted);
+      }
+
+      .status.error {
+        color: var(--danger);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="card">
+        <h1>Notedown 设置</h1>
+        <p>Chrome 扩展只在你主动摘录时工作。这里配置它要连接的本地 Obsidian 插件地址和安全令牌。</p>
+
+        <form id="settings-form">
+          <label for="serverUrl">Server URL</label>
+          <input id="serverUrl" name="serverUrl" type="url" placeholder="http://127.0.0.1:27124" required />
+
+          <label for="sharedSecret">Shared Secret</label>
+          <input id="sharedSecret" name="sharedSecret" type="password" placeholder="可选，但强烈建议设置" />
+
+          <div class="actions">
+            <button class="primary" type="submit">保存设置</button>
+            <button class="secondary" type="button" id="test-connection">测试连接</button>
+          </div>
+        </form>
+
+        <div class="status" id="status"></div>
+      </section>
+    </main>
+
+    <script src="options.js"></script>
+  </body>
+</html>
+
