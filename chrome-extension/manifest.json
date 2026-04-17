@@ -23,15 +23,6 @@
     "default_popup": "popup.html"
   },
   "options_page": "options.html",
-  "commands": {
-    "open-quick-capture": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+Y",
-        "mac": "Command+Shift+Y"
-      },
-      "description": "Open the Notedown capture panel"
-    }
-  },
   "content_scripts": [
     {
       "matches": [

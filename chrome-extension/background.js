@@ -107,24 +107,6 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
   });
 });
 
-chrome.commands.onCommand.addListener((command) => {
-  if (command !== "open-quick-capture") {
-    return;
-  }
-
-  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-    const activeTab = tabs[0];
-    if (!activeTab?.id) {
-      return;
-    }
-
-    sendPdfViewerMessage(activeTab.id);
-    chrome.tabs.sendMessage(activeTab.id, { type: "OPEN_CAPTURE" }, () => {
-      void chrome.runtime.lastError;
-    });
-  });
-});
-
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message?.type !== "OPEN_RAW_PDF") {
     return;
